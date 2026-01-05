@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrincaTreino - Movimento com Essência</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Fredoka:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-content">
+            <img src="./assets/logo.png" alt="Movimento com Essência" class="logo">
+            <a href="#offer" class="btn btn-sm btn-primary">Comprar Agora</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Para Mães e Filhos</span>
+                <h1>Transforme a Brincadeira em <span class="highlight">Treino e Conexão!</span></h1>
+                <p class="hero-sub">O único guia de atividades que une o exercício da mãe com a imaginação da criança.
+                    40 cartas para se divertir, suar e criar memórias inesquecíveis.</p>
+                <a href="#offer" class="btn btn-primary pulse">Quero Começar Agora</a>
+                <div class="hero-trust">
+                    <span><i class="fas fa-check-circle"></i> Sem equipamentos</span>
+                    <span><i class="fas fa-check-circle"></i> 100% Lúdico</span>
+                    <span><i class="fas fa-check-circle"></i> Conexão Real</span>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- We will place a generated image or the product mockup here -->
+                <div class="image-placeholder" id="hero-img">
+                    <img src="./assets/hero_mockup.png" alt="Mãe e filho treinando felizes"
+                        onerror="this.style.display='none'">
+                    <!-- Fallback descriptive text if image missing -->
+                </div>
+            </div>
+        </div>
+        <div class="wave-bottom">
+            <svg viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Problem/Solution Section -->
+    <section class="section problem-solution">
+        <div class="container text-center">
+            <h2>Você sente que precisa escolher entre <br><span class="text-gradient">cuidar de você</span> ou <span
+                    class="text-gradient">brincar com eles?</span></h2>
+            <p class="section-desc">Sabemos como é difícil encontrar tempo para treinar quando se tem filhos pequenos. A
+                culpa bate, o tempo falta e a energia acaba.</p>
+
+            <div class="cards-grid">
+                <div class="card-feature">
+                    <div class="icon-box"><i class="fas fa-clock"></i></div>
+                    <h3>Sem Tempo?</h3>
+                    <p>Treinos rápidos de 2 a 15 minutos que se encaixam na rotina.</p>
+                </div>
+                <div class="card-feature">
+                    <div class="icon-box"><i class="fas fa-child"></i></div>
+                    <h3>Eles pedem atenção?</h3>
+                    <p>Seu filho vira o personagem principal da história do treino.</p>
+                </div>
+                <div class="card-feature">
+                    <div class="icon-box"><i class="fas fa-heart"></i></div>
+                    <h3>Quer conexão?</h3>
+                    <p>Crie laços enquanto cuida da sua saúde física e mental.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section (Based on CSV) -->
+    <section class="section showcase" id="como-funciona">
+        <div class="container">
+            <div class="row">
+                <div class="col-text">
+                    <h2>Como funciona o <span class="brand-name">BrincaTreino</span>?</h2>
+                    <p>Cada carta traz uma missão lúdica para a criança e um exercício funcional para a mãe. Simples,
+                        divertido e eficiente.</p>
+                    <ul class="benefit-list">
+                        <li><strong>Para a Criança (Missão):</strong> "Sentar na cadeirinha invisível para descansar na
+                            floresta, sem deixar ela quebrar!"</li>
+                        <li><strong>Para a Mãe (Treino):</strong> Agachamento (Iniciante ou Avançado).</li>
+                        <li><strong>A Mágica (Interação):</strong> Contam juntos "1, 2, 3" antes de levantar.</li>
+                    </ul>
+                    <a href="#offer" class="btn btn-secondary">Ver os Planos</a>
+                </div>
+                <div class="col-image">
+                    <!-- Placeholder for card examples -->
+                    <div class="card-stack-mockup">
+                        <div class="card-item card-1">
+                            <h4>Cadeirinha Invisível</h4>
+                            <p>🦵 Agachamento</p>
+                        </div>
+                        <div class="card-item card-2">
+                            <h4>Passo do Caranguejo</h4>
+                            <p>🦀 Agachamento Sumô</p>
+                        </div>
+                        <div class="card-item card-3">
+                            <h4>Ponte Levadiça</h4>
+                            <p>🌉 Elevação Pélvica</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Preview -->
+    <section class="section preview">
+        <div class="container">
+            <h2 class="text-center">O que você vai encontrar?</h2>
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <span class="preview-number">40</span>
+                    <span class="preview-label">Cartas de Atividades</span>
+                </div>
+                <div class="preview-item">
+                    <span class="preview-number">2</span>
+                    <span class="preview-label">Níveis de Dificuldade</span>
+                </div>
+                <div class="preview-item">
+                    <span class="preview-number">∞</span>
+                    <span class="preview-label">Memórias Criadas</span>
+                </div>
+            </div>
+            <div class="activities-list">
+                <p>Algumas das aventuras inclusas:</p>
+                <div class="tags">
+                    <span>🧗 Escalando a Montanha</span>
+                    <span>🚀 Super-Herói Voador</span>
+                    <span>🤖 Robô Giratório</span>
+                    <span>🌉 Ponte Levadiça</span>
+                    <span>🦀 Caranguejo Pega-Estrela</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (Placeholder) -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="text-center">Quem já brincou e treinou, amou!</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Finalmente consegui voltar a me exercitar sem ter que deixar meu filho na frente da TV. Ele pede
+                        para brincar de 'Cadeirinha' todo dia!"</p>
+                    <cite>- Tamyres, mãe do João</cite>
+                </div>
+                <div class="testimonial-card">
+                    <p>"A ideia de usar o lúdico é genial. Eu faço meu agachamento e ela acha que somos caranguejos.
+                        Suamos e rimos muito."</p>
+                    <cite>- Fernanda, mãe da Bia</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing/Offer -->
+    <section class="section offer" id="offer">
+        <div class="container">
+            <div class="offer-box">
+                <span class="best-value">Oferta Especial</span>
+                <h2>Comece sua jornada BrincaTreino hoje</h2>
+                <div class="price">
+                    <span class="currency">R$</span>
+                    <span class="amount">27</span>
+                    <span class="cents">,00</span>
+                </div>
+                <ul class="offer-features">
+                    <li><i class="fas fa-check"></i> 40 Cartas Digitais Ilustradas</li>
+                    <li><i class="fas fa-check"></i> Guia de Execução Correta</li>
+                    <li><i class="fas fa-check"></i> Bônus: Playlist de Treino</li>
+                    <li><i class="fas fa-check"></i> Acesso Vitalício</li>
+                </ul>
+                <button class="btn btn-primary btn-large">Garanta o Seu Agora</button>
+                <p class="guarantee"><i class="fas fa-shield-alt"></i> 7 dias de garantia incondicional</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Movimento com Essência. Todos os direitos reservados.</p>
+            <p>Feito com amor, suor e imaginação.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
