@@ -304,14 +304,30 @@
 
         leadForm.onsubmit = function (e) {
             e.preventDefault();
+            const submitBtn = this.querySelector('button');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SALVANDO...';
+
             const name = document.getElementById('name').value;
             const whatsapp = document.getElementById('whatsapp').value;
+            const date = new Date().toLocaleString('pt-BR');
 
-            // Simulação de coleta (pode ser integrado com Formspree/Make/Sheet)
-            console.log("Lead Capturado:", { name, whatsapp });
+            // SUBSTITUA PELO SEU LINK DO APPS SCRIPT
+            const webhookUrl = "COLE_SEU_LINK_AQUI";
 
-            // Redireciona para o checkout
-            window.location.href = targetUrl + "?name=" + encodeURIComponent(name);
+            const data = { name, whatsapp, date };
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(() => {
+                window.location.href = targetUrl + "?name=" + encodeURIComponent(name);
+            }).catch(err => {
+                console.error("Erro ao salvar lead:", err);
+                window.location.href = targetUrl + "?name=" + encodeURIComponent(name);
+            });
         };
 
         // WhatsApp Mask
