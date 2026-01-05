@@ -702,3 +702,99 @@ footer p {
         display: none;
     }
 }
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: var(--radius-md);
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--primary);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-header h2 {
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: var(--radius-sm);
+    border: 2px solid #E2E8F0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.form-privacy {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 15px;
+}
