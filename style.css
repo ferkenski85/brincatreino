@@ -433,12 +433,20 @@ h2 {
     flex: 1;
     position: relative;
     max-width: 500px;
+    height: 550px;
+    /* Altura fixa para manter a consistência */
 }
 
 .about-img img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Faz a imagem preencher o espaço sem distorcer */
+    object-position: center 20%;
+    /* Foca mais na parte superior (rosto) */
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
+    display: block;
 }
 
 .about-img::before {
