@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrincaTreino Cards</title>
+    <script src="cards_data.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF7F50;
+            /* Orange */
+            --secondary: #00BFFF;
+            /* Blue */
+            --accent: #32CD32;
+            /* Green */
+            --text: #2D3436;
+            --bg: #F0F4F8;
+            --card-w: 350px;
+            /* ~A6 width relative */
+            --card-h: 550px;
+            /* ~A6 height relative */
+        }
+
+        body {
+            background: var(--bg);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        /* Print Settings */
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                gap: 10px;
+                display: block;
+                /* Helps with page breaks */
+            }
+
+            .card {
+                page-break-inside: avoid;
+                margin: 0 10px 20px 0;
+                display: inline-block;
+                border: 1px solid #ddd;
+                /* Light border for cutting */
+            }
+        }
+
+        /* Card Container */
+        .card {
+            width: var(--card-w);
+            height: var(--card-h);
+            background: white;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            border: 4px solid white;
+            box-sizing: border-box;
+        }
+
+        /* Theme Variations */
+        .card.theme-orange {
+            border-color: var(--primary);
+        }
+
+        .card.theme-blue {
+            border-color: var(--secondary);
+        }
+
+        .card.theme-green {
+            border-color: var(--accent);
+        }
+
+        /* Header */
+        .card-header {
+            height: 90px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .theme-orange .card-header {
+            background: linear-gradient(135deg, #FF7F50, #FF4500);
+        }
+
+        .theme-blue .card-header {
+            background: linear-gradient(135deg, #00BFFF, #009ACD);
+        }
+
+        .theme-green .card-header {
+            background: linear-gradient(135deg, #32CD32, #228B22);
+        }
+
+        .card-number {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: right;
+            line-height: 1.1;
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        /* Body */
+        .card-body {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .section-box {
+            background: #F9F9F9;
+            border-radius: 12px;
+            padding: 12px;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .theme-orange .section-label i {
+            color: var(--primary);
+        }
+
+        .theme-blue .section-label i {
+            color: var(--secondary);
+        }
+
+        .mission-text {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        .mom-text {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .interaction-box {
+            background: #FFF8E1;
+            /* Light yellow */
+            border: 2px dashed #FFD700;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #5D4037;
+            text-align: center;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.8rem;
+            margin-top: auto;
+        }
+
+        .level-box {
+            padding: 8px;
+            border-radius: 8px;
+            background: #f0f0f0;
+        }
+
+        .level-title {
+            font-weight: 700;
+            display: block;
+            margin-bottom: 3px;
+            color: #666;
+        }
+
+        /* Footer */
+        .card-footer {
+            padding: 10px 20px;
+            font-size: 0.7rem;
+            color: #999;
+            text-align: center;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            width: 60px;
+            opacity: 0.8;
+        }
+
+        /* Icons mapping (we'll implement basic logic in JS) */
+    </style>
+</head>
+
+<body>
+
+    <div id="cards-container"></div>
+
+    <script>
+        const container = document.getElementById('cards-container');
+
+        // Helper to get themes based on index or type
+        function getTheme(index) {
+            if (index % 2 === 0) return 'theme-orange';
+            return 'theme-blue';
+        }
+
+        cardsData.forEach((card, index) => {
+            // Skip empty lines if any
+            if (!card.NOME) return;
+
+            const cardEl = document.createElement('div');
+            cardEl.className = `card ${getTheme(index)}`;
+
+            const cardNum = index + 1;
+
+            // Parsing content
+            // Note: CSV keys might have spaces or special chars depending on python export
+            // We will inspect `cards_data.js` structure if needed, but assuming standard DictReader
+
+            /* Expected keys:
+               NOME, MISSÃO, CRIANÇA FAZ, MÃE FAZ, INTERAÇÃO, NÍVEL 1 (INICIANTE), NÍVEL 2 (AVANÇADO)
+            */
+
+            cardEl.innerHTML = `
+            <div class="card-header">
+                <div class="card-number">${cardNum}</div>
+                <div class="card-title">${card.NOME}</div>
+            </div>
+            <div class="card-body">
+                
+                <div class="section-box">
+                    <div class="section-label"><i class="fas fa-child"></i> Missão (Criança)</div>
+                    <div class="mission-text">"${card['MISSÃO']}"</div>
+                    <div style="margin-top:5px; font-size:0.9rem; color:#666;">
+                        <i class="fas fa-play-circle" style="font-size:0.8rem"></i> ${card['CRIANÇA FAZ']}
+                    </div>
+                </div>
+
+                <div class="section-box">
+                    <div class="section-label"><i class="fas fa-dumbbell"></i> Treino (Mãe)</div>
+                    <div class="mom-text"><strong>${card['MÃE FAZ']}</strong></div>
+                </div>
+
+                <div class="interaction-box">
+                    <i class="fas fa-sparkles"></i> <strong>Interação:</strong><br>
+                    ${card['INTERAÇÃO']}
+                </div>
+
+                <div class="levels-grid">
+                    <div class="level-box">
+                        <span class="level-title" style="color:#32CD32">Nível 1</span>
+                        ${card['NÍVEL 1 (INICIANTE)']}
+                    </div>
+                    <div class="level-box">
+                        <span class="level-title" style="color:#FF4500">Nível 2</span>
+                        ${card['NÍVEL 2 (AVANÇADO)']}
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <div>Tempo: ${card['TEMPO']}</div>
+                <img src="./assets/logo.png" class="brand-logo" alt="Logo">
+            </div>
+        `;
+
+            container.appendChild(cardEl);
+        });
+    </script>
+
+</body>
+
+</html>

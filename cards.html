@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrincaTreino Cards - Modo Impressão</title>
+    <script src="cards_data.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF7F50;
+            --secondary: #00BFFF;
+            --accent: #32CD32;
+            --text: #2D3436;
+            --bg: #F8FAFC;
+            --card-w: 380px;
+            --card-h: 560px;
+        }
+
+        body {
+            background: var(--bg);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .controls {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            gap: 15px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-family: 'Fredoka';
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-print {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-print:hover {
+            background: #E6663E;
+            transform: translateY(-2px);
+        }
+
+        #cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            max-width: 1400px;
+        }
+
+        /* Card Styles */
+        .card {
+            width: var(--card-w);
+            height: var(--card-h);
+            background: white;
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            border: 8px solid white;
+            box-sizing: border-box;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .theme-orange {
+            border-color: var(--primary);
+        }
+
+        .theme-blue {
+            border-color: var(--secondary);
+        }
+
+        .theme-green {
+            border-color: var(--accent);
+        }
+
+        .card-header {
+            height: 100px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+            position: relative;
+        }
+
+        .theme-orange .card-header {
+            background: linear-gradient(135deg, #FF7F50, #FF4500);
+        }
+
+        .theme-blue .card-header {
+            background: linear-gradient(135deg, #00BFFF, #009ACD);
+        }
+
+        .card-number {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.8rem;
+            background: rgba(255, 255, 255, 0.25);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: right;
+            line-height: 1.1;
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .card-body {
+            flex: 1;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .section-box {
+            background: #F8FAFC;
+            border-radius: 16px;
+            padding: 15px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748B;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-orange .section-label i {
+            color: var(--primary);
+        }
+
+        .theme-blue .section-label i {
+            color: var(--secondary);
+        }
+
+        .mission-text {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.15rem;
+            color: #1E293B;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .mom-text {
+            font-size: 1.1rem;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .interaction-box {
+            background: #FEF9C3;
+            border: 2px dashed #FACC15;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #713F12;
+            text-align: center;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .level-box {
+            padding: 10px;
+            border-radius: 10px;
+            background: white;
+            border: 1px solid #E2E8F0;
+            font-size: 0.85rem;
+        }
+
+        .level-title {
+            font-weight: 800;
+            display: block;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+        }
+
+        .card-footer {
+            padding: 15px 25px;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            border-top: 1px solid #F1F5F9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            width: 70px;
+            opacity: 0.6;
+        }
+
+        /* Print Settings */
+        @media print {
+            .controls {
+                display: none;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            #cards-container {
+                display: block;
+                width: 210mm;
+                /* A4 width */
+                margin: 0 auto;
+            }
+
+            .card {
+                page-break-inside: avoid;
+                margin: 10mm auto;
+                box-shadow: none;
+                border: 2px solid #ddd;
+                width: 95mm;
+                height: 140mm;
+                display: inline-flex;
+                margin-right: 5mm;
+            }
+
+            .card:nth-child(2n) {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="controls">
+        <button class="btn btn-print" onclick="window.print()">
+            <i class="fas fa-print"></i> Imprimir Cards (PDF)
+        </button>
+        <div style="display: flex; align-items: center; color: #64748B; font-size: 0.9rem;">
+            <i class="fas fa-info-circle" style="margin-right: 5px;"></i>
+            Dica: Configure para "Salvar como PDF" e "Layout de 4 por folha" se preferir.
+        </div>
+    </div>
+
+    <div id="cards-container"></div>
+
+    <script>
+        const container = document.getElementById('cards-container');
+
+        function getTheme(index) {
+            const themes = ['theme-orange', 'theme-blue'];
+            return themes[index % 2];
+        }
+
+        if (typeof cardsData === 'undefined' || !cardsData) {
+            container.innerHTML = '<h2 style="color:red; text-align:center; width:100%;">Erro: cards_data.js não carregado.</h2>';
+        } else {
+            cardsData.forEach((card, index) => {
+                if (!card.NOME) return;
+
+                const cardEl = document.createElement('div');
+                cardEl.className = `card ${getTheme(index)}`;
+
+                cardEl.innerHTML = `
+                <div class="card-header">
+                    <div class="card-number">${index + 1}</div>
+                    <div class="card-title">${card.NOME}</div>
+                </div>
+                <div class="card-body">
+                    <div class="section-box">
+                        <div class="section-label"><i class="fas fa-star"></i> Missão da Criança</div>
+                        <div class="mission-text">"${card['MISSÃO']}"</div>
+                        <div style="margin-top:10px; font-size:0.85rem; color:#64748B; font-style:italic;">
+                            O que ela faz: ${card['CRIANÇA FAZ']}
+                        </div>
+                    </div>
+
+                    <div class="section-box">
+                        <div class="section-label"><i class="fas fa-dumbbell"></i> Treino da Mãe</div>
+                        <div class="mom-text">${card['MÃE FAZ']}</div>
+                    </div>
+
+                    <div class="interaction-box">
+                        <strong>Momento Conexão:</strong><br>
+                        ${card['INTERAÇÃO']}
+                    </div>
+
+                    <div class="levels-grid">
+                        <div class="level-box">
+                            <span class="level-title" style="color:#32CD32">Iniciante</span>
+                            ${card['NÍVEL 1 (INICIANTE)']}
+                        </div>
+                        <div class="level-box">
+                            <span class="level-title" style="color:#FF4500">Avançado</span>
+                            ${card['NÍVEL 2 (AVANÇADO)']}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div><i class="far fa-clock"></i> Tempo: ${card['TEMPO']}</div>
+                    <img src="./assets/logo.png" class="brand-logo" alt="Logo">
+                </div>
+            `;
+                container.appendChild(cardEl);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

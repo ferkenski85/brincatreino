@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Design 3D Style</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* 3D Scene */
+        .scene {
+            width: 500px;
+            height: 700px;
+            perspective: 1500px;
+        }
+
+        .box-3d {
+            position: relative;
+            width: 420px;
+            height: 580px;
+            /* Slightly wider */
+            transform-style: preserve-3d;
+            transform: rotateY(-25deg) rotateX(10deg);
+            box-shadow: 30px 30px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            /* Softer corners */
+        }
+
+        .front {
+            /* Vibrant orange bg with radial highlights */
+            background: radial-gradient(circle at top right, #FFD700 0%, #FF7F50 40%, #FF4500 100%);
+            transform: translateZ(30px);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .spine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 100%;
+            background: linear-gradient(to right, #d35400, #E65100);
+            transform: rotateY(-90deg) translateZ(30px);
+            transform-origin: left;
+            border-radius: 2px;
+        }
+
+        /* Abstract blobs in background */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            z-index: 0;
+        }
+
+        .b1 {
+            width: 350px;
+            height: 350px;
+            background: #00BFFF;
+            top: -120px;
+            left: -120px;
+            opacity: 0.9;
+        }
+
+        .b2 {
+            width: 300px;
+            height: 300px;
+            background: #32CD32;
+            bottom: -80px;
+            right: -80px;
+            opacity: 0.8;
+        }
+
+        .b3 {
+            width: 150px;
+            height: 150px;
+            background: #FFD700;
+            top: 45%;
+            left: -60px;
+            opacity: 0.5;
+        }
+
+        /* Content Layer */
+        .content {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-top {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-top: 35px;
+            padding: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 3.8rem;
+            color: white;
+            margin: 15px 0 5px;
+            text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+            /* Bubble text shadow effect */
+            line-height: 1;
+        }
+
+        h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.3rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 8px 30px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .main-illu {
+            width: 280px;
+            height: 280px;
+            background: white;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 8px solid white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-illu img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge-bottom {
+            background: #32CD32;
+            /* Green badge */
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            margin-top: auto;
+            margin-bottom: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scene">
+        <div class="box-3d">
+            <div class="spine"></div>
+            <div class="face front">
+                <!-- Blobs -->
+                <div class="blob b1"></div>
+                <div class="blob b2"></div>
+                <div class="blob b3"></div>
+
+                <div class="content">
+                    <div class="logo-top">
+                        <img src="./assets/logo.png" alt="Logo">
+                    </div>
+
+                    <h1>BrincaTreino</h1>
+                    <h2>40 Missões para Mães e Filhos</h2>
+
+                    <div class="main-illu">
+                        <img src="./assets/illustration_cover_3d.png" alt="Mãe e Filho 3D">
+                    </div>
+
+                    <div class="badge-bottom">
+                        + Bônus Exclusivos
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
