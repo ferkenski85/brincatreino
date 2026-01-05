@@ -15,7 +15,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container nav-content">
             <img src="./assets/logo.png" alt="Movimento com Essência" class="logo">
             <a href="#offer" class="btn btn-sm btn-primary">Comprar Agora</a>
@@ -25,33 +25,30 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="container">
-            <div class="hero-content">
-                <span class="badge">Para Mães e Filhos</span>
-                <h1>Transforme a Brincadeira em <span class="highlight">Treino e Conexão!</span></h1>
-                <p class="hero-sub">O único guia de atividades que une o exercício da mãe com a imaginação da criança.
-                    40 cartas para se divertir, suar e criar memórias inesquecíveis.</p>
-                <a href="#offer" class="btn btn-primary pulse">Quero Começar Agora</a>
-                <div class="hero-trust">
-                    <span><i class="fas fa-check-circle"></i> Sem equipamentos</span>
-                    <span><i class="fas fa-check-circle"></i> 100% Lúdico</span>
-                    <span><i class="fas fa-check-circle"></i> Conexão Real</span>
+            <div class="row">
+                <div class="hero-content">
+                    <span class="badge">Para Mães e Filhos</span>
+                    <h1>Transforme a Brincadeira em <br><span class="highlight">Treino e Conexão!</span></h1>
+                    <p class="hero-sub">O único guia de atividades que une o exercício da mãe com a imaginação da
+                        criança.
+                        40 cartas para se divertir, suar e criar memórias inesquecíveis.</p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <a href="#offer" class="btn btn-primary pulse">Quero Começar Agora</a>
+                        <a href="#como-funciona" class="btn btn-secondary">Saiba Mais</a>
+                    </div>
+                    <div class="hero-trust">
+                        <span><i class="fas fa-check-circle"></i> Sem equipamentos</span>
+                        <span><i class="fas fa-check-circle"></i> 100% Lúdico</span>
+                        <span><i class="fas fa-check-circle"></i> Conexão Real</span>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img src="./assets/product_cover.png" alt="Kit BrincaTreino"
+                            style="width: 100%; max-width: 480px; height: auto; border-radius: 20px; box-shadow: var(--shadow-lg);">
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <!-- We will place a generated image or the product mockup here -->
-                <div class="image-placeholder" id="hero-img">
-                    <img src="./assets/hero_mockup.png" alt="Mãe e filho treinando felizes"
-                        onerror="this.style.display='none'">
-                    <!-- Fallback descriptive text if image missing -->
-                </div>
-            </div>
-        </div>
-        <div class="wave-bottom">
-            <svg viewBox="0 0 1440 320">
-                <path fill="#ffffff" fill-opacity="1"
-                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-                </path>
-            </svg>
         </div>
     </header>
 
@@ -67,52 +64,59 @@
                 <div class="card-feature">
                     <div class="icon-box"><i class="fas fa-clock"></i></div>
                     <h3>Sem Tempo?</h3>
-                    <p>Treinos rápidos de 2 a 15 minutos que se encaixam na rotina.</p>
+                    <p>Treinos rápidos de 2 a 15 minutos que se encaixam perfeitamente na sua rotina corrida.</p>
                 </div>
                 <div class="card-feature">
                     <div class="icon-box"><i class="fas fa-child"></i></div>
                     <h3>Eles pedem atenção?</h3>
-                    <p>Seu filho vira o personagem principal da história do treino.</p>
+                    <p>Seu filho vira o personagem principal da história, participando de cada movimento.</p>
                 </div>
                 <div class="card-feature">
                     <div class="icon-box"><i class="fas fa-heart"></i></div>
                     <h3>Quer conexão?</h3>
-                    <p>Crie laços enquanto cuida da sua saúde física e mental.</p>
+                    <p>Crie laços afetivos inquebráveis enquanto cuida da sua saúde física e mental.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Showcase Section (Based on CSV) -->
+    <!-- Showcase Section -->
     <section class="section showcase" id="como-funciona">
         <div class="container">
-            <div class="row">
+            <div class="row" style="align-items: center;">
                 <div class="col-text">
-                    <h2>Como funciona o <span class="brand-name">BrincaTreino</span>?</h2>
-                    <p>Cada carta traz uma missão lúdica para a criança e um exercício funcional para a mãe. Simples,
-                        divertido e eficiente.</p>
+                    <h2>Como funciona o <span class="text-gradient">BrincaTreino</span>?</h2>
+                    <p class="section-desc" style="margin-left:0; margin-bottom: 30px;">Cada carta traz uma missão
+                        lúdica para a criança e um exercício funcional para a mãe. Simples, divertido e eficiente.</p>
                     <ul class="benefit-list">
-                        <li><strong>Para a Criança (Missão):</strong> "Sentar na cadeirinha invisível para descansar na
-                            floresta, sem deixar ela quebrar!"</li>
-                        <li><strong>Para a Mãe (Treino):</strong> Agachamento (Iniciante ou Avançado).</li>
-                        <li><strong>A Mágica (Interação):</strong> Contam juntos "1, 2, 3" antes de levantar.</li>
+                        <li>
+                            <strong><i class="fas fa-magic"></i> Para a Criança:</strong>
+                            "Cadeirinha invisível para descansar na floresta, sem deixar ela quebrar!"
+                        </li>
+                        <li>
+                            <strong><i class="fas fa-dumbbell"></i> Para a Mãe:</strong>
+                            Agachamento Funcional (Nível Iniciante ou Avançado).
+                        </li>
+                        <li>
+                            <strong><i class="fas fa-sparkles"></i> A Mágica:</strong>
+                            Contam juntas "1, 2, 3" e celebram a vitória de cada movimento.
+                        </li>
                     </ul>
-                    <a href="#offer" class="btn btn-secondary">Ver os Planos</a>
+                    <a href="#offer" class="btn btn-primary">Ver todos os benefícios</a>
                 </div>
-                <div class="col-image">
-                    <!-- Placeholder for card examples -->
+                <div class="col-image" style="flex: 1; display: flex; justify-content: center;">
                     <div class="card-stack-mockup">
-                        <div class="card-item card-1">
-                            <h4>Cadeirinha Invisível</h4>
-                            <p>🦵 Agachamento</p>
+                        <div class="card-item card-3">
+                            <h4 style="color: var(--accent);">Ponte Levadiça</h4>
+                            <p>🌉 Elevação Pélvica</p>
                         </div>
                         <div class="card-item card-2">
-                            <h4>Passo do Caranguejo</h4>
+                            <h4 style="color: var(--secondary);">Passo do Caranguejo</h4>
                             <p>🦀 Agachamento Sumô</p>
                         </div>
-                        <div class="card-item card-3">
-                            <h4>Ponte Levadiça</h4>
-                            <p>🌉 Elevação Pélvica</p>
+                        <div class="card-item card-1">
+                            <h4 style="color: var(--primary);">Cadeirinha Invisível</h4>
+                            <p>🦵 Agachamento</p>
                         </div>
                     </div>
                 </div>
@@ -122,8 +126,8 @@
 
     <!-- Content Preview -->
     <section class="section preview">
-        <div class="container">
-            <h2 class="text-center">O que você vai encontrar?</h2>
+        <div class="container text-center">
+            <h2>O que você vai encontrar no Kit?</h2>
             <div class="preview-grid">
                 <div class="preview-item">
                     <span class="preview-number">40</span>
@@ -131,40 +135,51 @@
                 </div>
                 <div class="preview-item">
                     <span class="preview-number">2</span>
-                    <span class="preview-label">Níveis de Dificuldade</span>
+                    <span class="preview-label">Níveis de Desafio</span>
                 </div>
                 <div class="preview-item">
                     <span class="preview-number">∞</span>
-                    <span class="preview-label">Memórias Criadas</span>
+                    <span class="preview-label">Memórias Felizes</span>
                 </div>
             </div>
-            <div class="activities-list">
-                <p>Algumas das aventuras inclusas:</p>
-                <div class="tags">
-                    <span>🧗 Escalando a Montanha</span>
-                    <span>🚀 Super-Herói Voador</span>
-                    <span>🤖 Robô Giratório</span>
-                    <span>🌉 Ponte Levadiça</span>
-                    <span>🦀 Caranguejo Pega-Estrela</span>
-                </div>
+
+            <div class="tags">
+                <span>🧗 Escalando a Montanha</span>
+                <span>🚀 Super-Herói Voador</span>
+                <span>🤖 Robô Giratório</span>
+                <span>🌉 Ponte Levadiça</span>
+                <span>🦀 Caranguejo Pega-Estrela</span>
+                <span>🦁 Leão Corajoso</span>
+            </div>
+
+            <div style="margin-top: 50px;">
+                <a href="#offer" class="btn btn-primary pulse">Eu quero esse Kit completo!</a>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials (Placeholder) -->
-    <section class="section testimonials">
+    <!-- About Section -->
+    <section class="section about">
         <div class="container">
-            <h2 class="text-center">Quem já brincou e treinou, amou!</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p>"Finalmente consegui voltar a me exercitar sem ter que deixar meu filho na frente da TV. Ele pede
-                        para brincar de 'Cadeirinha' todo dia!"</p>
-                    <cite>- Tamyres, mãe do João</cite>
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="./assets/fernanda_photo.jpg" alt="Fernanda - Fundadora">
                 </div>
-                <div class="testimonial-card">
-                    <p>"A ideia de usar o lúdico é genial. Eu faço meu agachamento e ela acha que somos caranguejos.
-                        Suamos e rimos muito."</p>
-                    <cite>- Fernanda, mãe da Bia</cite>
+                <div class="about-text">
+                    <span class="badge">A Mente por Trás</span>
+                    <h2 style="margin-top: 15px;">Quem criou o BrincaTreino?</h2>
+                    <p class="section-desc" style="margin-left: 0; margin-bottom: 25px;">Sou Fernanda, mãe da Bia e
+                        idealizadora do <strong>Movimento com Essência</strong>.</p>
+                    <p style="margin-bottom: 20px;">Criei o BrincaTreino porque senti na pele a dificuldade de conciliar
+                        a maternidade real com o autocuidado necessário para nossa saúde mental e física.</p>
+                    <p>Meu objetivo é ajudar você a encontrar o equilíbrio, mostrando que não precisamos escolher entre
+                        ser uma mãe presente e cuidar de nós mesmas.</p>
+                    <div style="margin-top: 30px;">
+                        <a href="https://instagram.com/movimentocomessencia" target="_blank"
+                            class="btn btn-secondary btn-sm">
+                            <i class="fab fa-instagram"></i> Siga no Instagram
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -174,21 +189,40 @@
     <section class="section offer" id="offer">
         <div class="container">
             <div class="offer-box">
-                <span class="best-value">Oferta Especial</span>
-                <h2>Comece sua jornada BrincaTreino hoje</h2>
+                <span class="best-value">Acesso Imediato</span>
+                <h2 style="color: var(--text);">Comece sua jornada BrincaTreino hoje</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Tenha acesso a todo o conteúdo digital no seu
+                    e-mail agora mesmo.</p>
+
                 <div class="price">
                     <span class="currency">R$</span>
-                    <span class="amount">27</span>
+                    <span class="amount" style="font-weight: 800;">27</span>
                     <span class="cents">,00</span>
                 </div>
+
                 <ul class="offer-features">
-                    <li><i class="fas fa-check"></i> 40 Cartas Digitais Ilustradas</li>
-                    <li><i class="fas fa-check"></i> Guia de Execução Correta</li>
-                    <li><i class="fas fa-check"></i> Bônus: Playlist de Treino</li>
-                    <li><i class="fas fa-check"></i> Acesso Vitalício</li>
+                    <li><i class="fas fa-check-circle"></i> 40 Cartas Digitais</li>
+                    <li><i class="fas fa-check-circle"></i> Guia em PDF</li>
+                    <li><i class="fas fa-check-circle"></i> Bônus: Playlist</li>
+                    <li><i class="fas fa-check-circle"></i> Suporte Exclusivo</li>
                 </ul>
-                <button class="btn btn-primary btn-large">Garanta o Seu Agora</button>
-                <p class="guarantee"><i class="fas fa-shield-alt"></i> 7 dias de garantia incondicional</p>
+
+                <a href="https://pay.hotmart.com/YOUR_LINK" class="btn btn-primary"
+                    style="width: 100%; padding: 20px; font-size: 1.3rem;">
+                    ADQUIRIR AGORA <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <div class="guarantee-box">
+                    <div
+                        style="display: flex; align-items: center; gap: 20px; justify-content: center; text-align: left;">
+                        <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--accent);"></i>
+                        <div>
+                            <strong style="display: block; font-size: 1.1rem;">Garantia de 7 Dias</strong>
+                            <span style="font-size: 0.9rem; color: var(--text-muted);">Se não gostar, devolvemos 100% do
+                                seu investimento sem perguntas.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -196,10 +230,35 @@
     <!-- Footer -->
     <footer>
         <div class="container">
+            <img src="./assets/logo.png" alt="Logo"
+                style="height: 60px; filter: brightness(0) invert(1); opacity: 0.5; margin-bottom: 30px;">
             <p>&copy; 2024 Movimento com Essência. Todos os direitos reservados.</p>
-            <p>Feito com amor, suor e imaginação.</p>
+            <p style="font-size: 0.8rem; opacity: 0.6;">CNPJ: 00.000.000/0000-00 | Termos de Uso | Políticas de
+                Privacidade</p>
         </div>
     </footer>
+
+    <script>
+        // Navbar glass effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.onscroll = function () {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        };
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 </body>
 
